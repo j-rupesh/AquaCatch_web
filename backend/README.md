@@ -106,3 +106,16 @@ app.use("/api/products", require("./routes/productRoutes"));
 http://localhost:5000/api/products
 
 ✔ Empty array dikhega (normal)
+
+PS C:\Users\LENOVO\Downloads\AquaCatch_web> cd aquacatch
+PS C:\Users\LENOVO\Downloads\AquaCatch_web\aquacatch> cd backend
+PS C:\Users\LENOVO\Downloads\AquaCatch_web\aquacatch\backend> npx nodemon server.js
+[nodemon] 3.1.14
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node server.js`
+🌐 AquaCatch Server is running on http://localhost:5000
+🗄️ Environment: development
+✅ MongoDB Connected Successfully
+

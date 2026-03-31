@@ -64,9 +64,13 @@ app.use("*", (req, res) => {
 app.use(errorHandler);
 
 // 🔹 Server Startup
+
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🌐 AquaCatch Server is running on http://localhost:${PORT}`);
-  console.log(`🗄️ Environment: ${process.env.NODE_ENV || "development"}`);
+// '0.0.0.0' जोड़ने से यह लोकल नेटवर्क के सभी डिवाइसेस के लिए खुल जाएगा
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🌐 AquaCatch Server is running on:`);
+  console.log(`   - Local:   http://localhost:${PORT}`);
+  console.log(`   - Network: http://0.0.0:${PORT}`);
+  console.log(`🗄️  Environment: ${process.env.NODE_ENV || "development"}`);
 });

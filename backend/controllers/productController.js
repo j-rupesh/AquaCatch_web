@@ -6,7 +6,7 @@ const Product = require("../models/Product");
  */
 exports.getAllProducts = async (req, res, next) => {
   try {
-    const { category, search, page = 1, limit = 12, sort = "-createdAt" } = req.query;
+    const { category, search, page = 1, limit = 12, sort = "-createdAt", minPrice, maxPrice } = req.query;
 
     let filter = { isActive: true };
 
@@ -21,6 +21,13 @@ exports.getAllProducts = async (req, res, next) => {
     // Category filter
     if (category) {
       filter.category = category;
+    }
+
+    // Price range filter
+    if (minPrice || maxPrice) {
+      filter.price = {};
+      if (minPrice) filter.price.$gte = parseFloat(minPrice);
+      if (maxPrice) filter.price.$lte = parseFloat(maxPrice);
     }
 
     const skip = (parseInt(page) - 1) * parseInt(limit);

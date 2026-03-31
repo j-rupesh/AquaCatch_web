@@ -7,7 +7,8 @@ const { generateToken } = require("../utils/jwtToken");
  */
 exports.register = async (req, res, next) => {
   try {
-    const { name, email, password, phone } = req.body;
+    const { name, password, phone } = req.body;
+    const email = req.body.email.toLowerCase().trim();
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -52,7 +53,8 @@ exports.register = async (req, res, next) => {
  */
 exports.login = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { password } = req.body;
+    const email = req.body.email ? req.body.email.toLowerCase().trim() : "";
 
     if (!email || !password) {
       return res.status(400).json({
