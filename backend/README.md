@@ -60,7 +60,7 @@ backend/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/aquacatch-backend.git
+[https://github.com/j-rupesh/AquaCatch_web/blob/main/backend/README.md]
 cd aquacatch-backend
 ```
 
